@@ -16,7 +16,7 @@ This repository is a portfolio presentation of the project. It intentionally doe
 
 ## Evidence and visuals
 
-- [Browser screenshots](docs/evidence/browser/)
+- [Browser screenshots](images/browser/)
 - [Security findings and remediation evidence](docs/evidence/)
 - [Architecture](docs/architecture.md)
 - [Threat model](docs/threat-model.md)
