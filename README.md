@@ -37,21 +37,17 @@ The local interface supports demo sign-in, account questions, transaction explan
 
 The model proposes a structured action. Deterministic backend code then verifies the signed-in user, checks resource ownership, enforces the tool allowlist, validates the response, and decides whether the request can proceed.
 
-![Security pipeline](screenshots/carousel-02-security-pipeline.png)
-
 The model generates suggestions. The backend decides what is allowed.
 
 ## Before and after
 
 The baseline version intentionally trusted the model-requested account target. A prompt-injection test changed the request from Alex’s account to Blair’s fictional account, and the backend returned HTTP 200 with account data.
 
-![Prompt injection evidence](screenshots/carousel-03-evidence-chat.png)
+![Prompt injection and conversation evidence](screenshots/conversation.png)
 
 After hardening, the same cross-account request returned HTTP 403 and no account data. The fix was server-side ownership enforcement, not a better prompt.
 
-![Before and after authorization result](screenshots/carousel-04-before-after.png)
-
-![Hardened controls](screenshots/carousel-05-fix.png)
+![Hardened cross-account refusal](screenshots/hardened-cross-account-blocked.png)
 
 ## Security testing
 
