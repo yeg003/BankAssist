@@ -45,11 +45,23 @@ The model generates suggestions. The backend decides what is allowed.
 
 ## Before and after
 
-The baseline version intentionally trusted the model-requested account target. A prompt-injection test changed the request from Alex’s account to Blair’s fictional account, and the backend returned HTTP 200 with account data.
+The following captures show freshly executed local API tests. Both authenticate as Alex and request Blair's fictional account. These are browser-rendered test-output reports, separate from the customer chat interface. No LLM is called in this comparison.
 
-After hardening, the same cross-account request returned HTTP 403 and no account data. The fix was server-side ownership enforcement, not a better prompt.
+### Before: ownership check disabled
 
-![Hardened cross-account refusal](screenshots/hardened-cross-account-blocked.png)
+The isolated baseline returned HTTP 200 for the unauthorized request. The test verified that the response identified Blair's account. Alex's own account also returned HTTP 200 as a control.
+
+![Baseline API test output showing unauthorized access with HTTP 200](screenshots/before-cross-account-200.png)
+
+### After: ownership check enforced
+
+The same test returned HTTP 403 with `Access denied`. Alex's own account still returned HTTP 200. Both tests passed their expected assertions; the baseline PASS means the intentional vulnerability was reproduced.
+
+![Hardened API test output showing access denied with HTTP 403](screenshots/after-cross-account-403.png)
+
+The separate scripted prompt-injection exercise simulates an unsafe model proposal. It does not establish that Qwen was compromised. The existing chat screenshot below records a model refusal and explicitly states that backend authorization was not exercised.
+
+![Chat model refusal with backend authorization not exercised](screenshots/hardened-cross-account-blocked.png)
 
 ## Security testing
 

@@ -96,3 +96,11 @@ The policy layer, not the AI component, makes access, action, and escalation dec
 - Production AI provider integration in phase one.
 - Docker and cloud deployment in phase one.
 - Any claim of affiliation with American Express.
+# Portfolio evidence update, 2026-09-17
+
+- Capture matched cross-account API tests with baseline HTTP 200 and hardened HTTP 403.
+- Label rendered test reports separately from customer-interface screenshots.
+- Verify the authorized control remains HTTP 200 and each test reports PASS.
+- Keep restored implementation and capture tooling in the separate local recovery folder.
+- Publish only the README, plan update, and two evidence PNGs in this change.
+- QA: both scenarios executed successfully; screenshot text compared with actual process output; no source files staged.
