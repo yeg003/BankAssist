@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+logs/
+.pytest_cache/
+.venv-py311/
+.deck-build/
+bankassist.egg-info/
+*.DS_Store
