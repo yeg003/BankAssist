@@ -33,6 +33,10 @@ The local interface supports demo sign-in, account questions, transaction explan
 
 ![BankAssist conversation screen](screenshots/conversation.png)
 
+The full local workflow capture includes account lookup, transaction explanation, fraud guidance, ticket handling, and high-risk review routing.
+
+![Full BankAssist workflow](screenshots/full-workflow.png)
+
 ## How the security boundary works
 
 The model proposes a structured action. Deterministic backend code then verifies the signed-in user, checks resource ownership, enforces the tool allowlist, validates the response, and decides whether the request can proceed.
