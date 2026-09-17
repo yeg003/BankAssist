@@ -47,8 +47,6 @@ The model generates suggestions. The backend decides what is allowed.
 
 The baseline version intentionally trusted the model-requested account target. A prompt-injection test changed the request from Alex’s account to Blair’s fictional account, and the backend returned HTTP 200 with account data.
 
-![Prompt injection and conversation evidence](screenshots/conversation.png)
-
 After hardening, the same cross-account request returned HTTP 403 and no account data. The fix was server-side ownership enforcement, not a better prompt.
 
 ![Hardened cross-account refusal](screenshots/hardened-cross-account-blocked.png)
